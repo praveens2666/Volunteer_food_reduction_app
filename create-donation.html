@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Donation Post</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="main-container">
+        <div class="page-header">
+            <button class="back-btn"><i class="fas fa-arrow-left"></i></button>
+            <h1>Create Donation Post</h1>
+        </div>
+
+        <form id="donationForm">
+            <div class="form-group">
+                <label for="foodDescription">Food Description</label>
+                <input type="text" id="foodDescription" placeholder="What food do you want to donate?" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="foodQuantity">Quantity</label>
+                <input type="number" id="foodQuantity" placeholder="Number of plates/servings" required min="1">
+            </div>
+            
+            <div class="form-group">
+                <label>Food Type</label>
+                <div class="food-type-toggle">
+                    <button type="button" class="food-type-btn active" data-type="veg">
+                        <i class="fas fa-leaf"></i> Veg
+                    </button>
+                    <button type="button" class="food-type-btn" data-type="nonveg">
+                        <i class="fas fa-drumstick-bite"></i> Non Veg
+                    </button>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="expiryTime">Expiry Time</label>
+                <input type="datetime-local" id="expiryTime" required>
+            </div>
+            
+            <div class="form-group">
+                <label>Add Photos</label>
+                <div class="photo-upload">
+                    <div class="upload-placeholder">
+                        <i class="fas fa-camera"></i>
+                        <p>Add Photos</p>
+                    </div>
+                    <input type="file" id="photoUpload" accept="image/*" multiple hidden>
+                </div>
+                <div class="photo-preview"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="pickupAddress">Pickup Address</label>
+                <textarea id="pickupAddress" placeholder="Enter the address where food can be picked up" required></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label>Or</label>
+                <button type="button" class="map-location-btn">
+                    <i class="fas fa-map-marker-alt"></i> Use Current Location
+                </button>
+            </div>
+            
+            <button type="submit" class="submit-btn">Post Donation</button>
+        </form>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

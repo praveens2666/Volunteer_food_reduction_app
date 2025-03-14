@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donor Profile</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="main-container">
+        <div class="profile-header">
+            <div class="profile-greeting">
+                <p>Hi <span id="user-name">Vijay</span></p>
+                <div class="profile-role">
+                    <h2>You are a <span class="role-text">Volunteer</span> <i class="fas fa-chevron-down"></i></h2>
+                </div>
+            </div>
+            <div class="notification-icon">
+                <i class="far fa-bell"></i>
+            </div>
+        </div>
+
+        <div class="donor-stats">
+            <div class="donor-level">Super Donor</div>
+            <div class="donor-metrics">
+                <div class="metric">
+                    <p class="metric-label">No of Donations</p>
+                    <p class="metric-value">500</p>
+                </div>
+                <div class="metric">
+                    <p class="metric-label">Feedback received</p>
+                    <p class="metric-value">500</p>
+                </div>
+                <div class="metric">
+                    <p class="metric-label">Points earned</p>
+                    <p class="metric-value">1000</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="donor-tabs">
+            <div class="tab active" data-tab="my-post">Request to Deliver</div>
+            <div class="tab" data-tab="receivers-requests"></div>
+        </div>
+
+        <div class="space-y-4 mb-6">
+            <div class="bg-white p-4 rounded-lg shadow">
+                <h3 class="font-medium">Individual ABC</h3>
+                <div class="flex items-center gap-2 text-sm text-gray-600 mb-2">
+                    <span>Food Qty - 4 people</span>
+                </div>
+                <p class="text-sm text-gray-600 mb-2">12A, Vasant Kunj, New Delhi, 110070</p>
+                <button class="text-blue-500 text-sm">View more</button>
+                <div class="flex justify-end gap-2 mt-2">
+                    <button class="p-2 rounded-full bg-red-100">
+                        <i class="fas fa-times text-red-500"></i>
+                    </button>
+                    <button 
+                      class="p-2 rounded-full bg-green-100"
+                      onclick="handleDeliveryRequest('Individual ABC', '12A, Vasant Kunj'); window.location.href='livetracking.html';">
+
+                        <i class="fas fa-check text-green-500"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow">
+                <h3 class="font-medium">Restaurant ABC</h3>
+                <div class="flex items-center gap-2 text-sm text-gray-600 mb-2">
+                    <span>Food Qty - 4 people</span>
+                </div>
+                <p class="text-sm text-gray-600 mb-2">12A, Vasant Kunj, New Delhi, 110070</p>
+                <button class="text-blue-500 text-sm">View more</button>
+                <div class="flex justify-end gap-2 mt-2">
+                    <button class="p-2 rounded-full bg-red-100">
+                        <i class="fas fa-times text-red-500"></i>
+                    </button>
+                    <button 
+                      class="p-2 rounded-full bg-green-100"
+                      onclick="handleDeliveryRequest('Restaurant ABC', '12A, Vasant Kunj'); window.location.href='livetracking.html';">
+
+                        <i class="fas fa-check text-green-500"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <section class="section">
+            <div class="section-header">
+                <h2>NGOs Near You</h2>
+                <a href="#" class="see-more">See More</a>
+            </div>
+            <div class="ngo-grid">
+                <div class="ngo-card">
+                    <div class="ngo-image">
+                        <img src="11.jpg" alt="NGO Image">
+                    </div>
+                    <div class="ngo-info">
+                        <p class="ngo-name">Sri Kalimuthu Swamy Charitable Trust</p>
+                        <p class="ngo-distance">1.8km</p>
+                    </div>
+                </div>
+                <div class="ngo-card">
+                    <div class="ngo-image">
+                        <img src="22.jpg" alt="NGO Image">
+                    </div>
+                    <div class="ngo-info">
+                        <p class="ngo-name">Srivi Charitable trust</p>
+                        <p class="ngo-distance">9.1km</p>
+                    </div>
+                </div>
+                <div class="ngo-card">
+                    <div class="ngo-image">
+                        <img src="1.jpg" alt="NGO Image">
+                    </div>
+                    <div class="ngo-info">
+                        <p class="ngo-name">Sairam Trust</p>
+                        <p class="ngo-distance">2.5km</p>
+                    </div>
+                </div>
+                <div class="ngo-card">
+                    <div class="ngo-image">
+                        <img src="placeholder.jpg" alt="NGO Image">
+                    </div>
+                    <div class="ngo-info">
+                        <p class="ngo-name">Winner Trust</p>
+                        <p class="ngo-distance">3.5km</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <a href="home.html" class="nav-item">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="message.html" class="nav-item">
+                <i class="far fa-comment-alt"></i>
+                <span>Message</span>
+            </a>
+            <a href="search.html" class="nav-item">
+                <i class="fas fa-search"></i>
+                <span>Search</span>
+            </a>
+            <a href="profile.html" class="nav-item active">
+                <i class="far fa-user"></i>
+                <span>Profile</span>
+            </a>
+        </nav>
+    </div>
+
+    <script src="dashboard.js"></script>
+    <script>
+        function handleDeliveryRequest(from, address) {
+            console.log(`Delivery request accepted from: ${from}, Address: ${address}`);
+            // Additional logic for handling the delivery request can be added here
+        }
+    </script>
+</body>
+</html>
+</create_file>

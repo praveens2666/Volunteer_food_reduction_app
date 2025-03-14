@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donor Details</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
+</head>
+<body>
+    <div class="container">
+        <h1>Volunteer Details</h1>
+        
+        <div class="donor-types">
+            <div class="form-group">
+                <input type="file" id="uploadImage" accept="image/*">
+                <label for="uploadImage">Upload Image</label>
+            </div>
+        </div>
+        
+        <form id="donorForm" method="POST" action="/register">
+            <div class="form-group">
+                <input type="hidden" name="businessName" id="businessNameInput">
+                <input type="hidden" name="contactName" id="contactNameInput">
+                <input type="hidden" name="mobileNumber" id="mobileNumberInput">
+                <input type="hidden" name="email" id="emailInput">
+                <input type="hidden" name="address" id="addressInput">
+                <input type="hidden" name="pinCode" id="pinCodeInput">
+                <input type="hidden" name="city" id="cityInput">
+                <input type="text" id="businessName" placeholder="Name" required>
+            </div>
+            
+            <div class="form-group">
+                <input type="text" id="contactName" placeholder="Contact Name (Optional)" required>
+            </div>
+            
+            <div class="form-group phone-group">
+                <div class="country-code">
+                    <span>+91</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <input type="tel" id="mobileNumber" placeholder="Mobile Number" required>
+            </div>
+            
+            <div class="form-group">
+                <input type="email" id="emailId" placeholder="Email Id" required>
+            </div>
+            
+            <div class="form-group">
+                <input type="text" id="address" placeholder="Address" required>
+            </div>
+            
+            <div class="form-group">
+                <input type="text" id="pinCode" placeholder="Pin Code">
+            </div>
+            
+            <div class="form-group">
+                <input type="text" id="city" placeholder="City" required>
+            </div>
+            
+            <input type="hidden" id="location" name="location">
+            
+            <div class="divider">
+                <span>Or</span>
+            </div>
+            <div class="map-location">
+                <a href="#" id="pinLocationBtn">Pin Location by map</a>
+            </div>
+            <div class="form-group">
+                <label for="govtId">Choose Government ID for Verification:</label>
+                <select id="govtId" required>
+                    <option value="">Select ID</option>
+                    <option value="aadhar">Aadhar Card</option>
+                    <option value="pan">PAN Card</option>
+                    <option value="voter">Voter ID</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="file" id="uploadImage" accept="image/*">
+                <label for="uploadImage">Upload Image</label>
+            </div>
+            
+
+            <button type="submit" class="submit-btn" onclick="validateForm(event)">Next</button>
+            
+        </form>
+    </div>
+
+    <div id="mapModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Pin Your Location</h2>
+            <div id="map"></div>
+            <div class="btn-group">
+                <button class="map-btn active">Map</button>
+                <button class="satellite-btn">Satellite</button>
+            </div>
+            <button id="confirmLocation" class="submit-btn">Confirm Location</button>
+        </div>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+    <script src="script.js"></script>
+    <script>
+        function validateForm(event) {
+            event.preventDefault();
+            const businessName = document.getElementById('businessName').value;
+            const mobileNumber = document.getElementById('mobileNumber').value;
+            const emailId = document.getElementById('emailId').value;
+            const address = document.getElementById('address').value;
+            const city = document.getElementById('city').value;
+            const govtId = document.getElementById('govtId').value;
+
+            if (!businessName || !mobileNumber || !emailId || !address || !city || !govtId) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+
+            // Collect data for submission
+            document.getElementById('businessNameInput').value = businessName;
+            document.getElementById('contactNameInput').value = contactName;
+            document.getElementById('mobileNumberInput').value = mobileNumber;
+            document.getElementById('emailInput').value = emailId;
+            document.getElementById('addressInput').value = address;
+            document.getElementById('pinCodeInput').value = pinCode;
+            document.getElementById('cityInput').value = city;
+
+            // If all validations pass, submit the form
+            window.location.href = 'select-availability.html';
+        }
+    </script>
+
+</body>
+</html>
